@@ -1,67 +1,40 @@
-#### WEB SCRAPPING ####
+##### USING API's #####
+
 
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
-import json
 
-# time.sleep(random.uniform(1.5, 3.5))
+import time
+import random
 
-response = requests.get('https://www.ambitionbox.com/list-of-companies?page=1')
-print(response)
-print(response.text) # don't have a permission to access and hence the request is being rejected
+
+url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
-    'Accept-Language' : 'en-US,en;q=0.9',
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Sec-Ch-Ua": '"Not/A)Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
-    "Sec-Ch-Ua-Mobile": "?0",
-    "Sec-Ch-Ua-Platform": '"Windows"',
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-    "Sec-Fetch-User": "?1",
-    "Upgrade-Insecure-Requests": "1"
+    "accept": "application/json",
+
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTFlOTI4MzlmZjhmMTM4MmRhN2E3ZmJjYjhlYTYyNiIsIm5iZiI6MTc4NDIwOTI0MS44MzgsInN1YiI6IjZhNThkZjU5NmM0NmFjZGQ5OGQ2NDIyNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5FylF7yBngBJ2wBW2DoOBpM_mULrXVSsWQW7bjYfipU",
+
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
 }
 
-name = []
-rating = []
-votes = []
-salary = []
-location = []
-sector = []
+df = pd.DataFrame()
 
-for i in range(1,30): # getting data of first 29 pages
-    response = requests.get('https://www.ambitionbox.com/list-of-companies?page={}'.format(i), headers=headers)
-    webpage = response.text
-    soup = BeautifulSoup(webpage, 'lxml')
-    # print(soup.prettify())
-    company = soup.find_all('div', class_="companyCardWrapper")
+for i in range(1,500): # there are 551 pages
 
     print(i)
 
-    for i in company:
-        name.append(i.find('h2').text.strip())
+    try:
+        url = "http://api.themoviedb.org/3/movie/top_rated?language=en-US&page={}".format(i)
+        response = requests.get(url, headers=headers, timeout=10, verify=False)
 
-        rating.append(i.find('div', class_='rating_text').text.strip())
+    except:
+        print("Lost connection at", i)
 
-        votes.append(i.find_all('a', class_ = 'companyCardWrapper__ActionWrapper')[0].find('span', class_="companyCardWrapper__ActionCount").text.strip())
-        
-        salary.append(i.find_all('a', class_ = 'companyCardWrapper__ActionWrapper')[1].find('span', class_="companyCardWrapper__ActionCount").text.strip())
+    else:
+        temp = pd.DataFrame(response.json()['results'])
+        temp = temp[['id','title','popularity','vote_average','vote_count','overview']]
+        df = pd.concat([df, temp], ignore_index=True)
 
-        sector.append(i.find('span', class_='companyCardWrapper__interLinking').text.strip().split('|')[0])
-
-        location.append(i.find('span', class_='companyCardWrapper__interLinking').text.strip().split('|')[1].split()[0])
-
-
-d = {
-    'name' : name,
-    'rating' : rating,
-    'votes' : votes,
-    'salary' : salary,
-    'sectors' : sector,
-    'location' : location
-}
-df = pd.DataFrame(d)
-df.to_csv('created_scraped_data.csv', index=False)
+df.to_csv('tmdb.csv', index=False)
+print(df)
