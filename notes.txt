@@ -1,0 +1,53 @@
+Data Analysis is a process of inspecting, cleansing, transforming and modeling data with goal og discovring useful information
+
+# Steps - These are not linear steps.
+1. Asking Question
+    * Subject Matter Expertise
+    * Experience
+2. Data Wrangling/ Data Preprocessing
+3. Explorative Data Analysis
+4. Drawing Conclusions
+5. Communicating Results
+
+
+# Step2 : Data Wrangling/ Data Preprocessing/ Data Munging
+
+* Raw Data -> Useful Data for Data Analysis
+
+    a). Gata Gathering
+        * CSV
+        * API
+        * Web Scraping
+        * Databases
+    
+    b). Assessing Data - shape, info(), describe(), duplicates(), is_unique() etc
+
+    c). Cleaning Data 
+        * handling missing data
+        * handling duplicated data
+        * incorrect datatype
+
+
+# Step 3 : Explorative Data Analysis
+
+    a). Explore
+        * finding correlation / covarience
+        * analysis
+        * plotting graphs
+
+    b). Augmenting Data
+        * removing outliers
+        * merging DFs
+        * adding new column to the DF/DB
+        * feature engineering
+
+
+# Step 4 : Drawing Conclusions
+    - Machine Learning
+    - Inferential Statistics
+    - Descriptive Statistics
+
+
+# Step 5 : Communicating Results/ Story Telling
+    * different data visualisation techniques
+    * confidence
