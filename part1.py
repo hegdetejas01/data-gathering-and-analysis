@@ -130,3 +130,55 @@ import mysql.connector
 
 
 
+
+#################################################################################
+#################################################################################
+#################################################################################
+#################################################################################
+#################################################################################
+
+### EXPORTING DF ###
+
+
+# df1.to_ : gives auto-suggestion to export
+
+
+df1 = pd.read_csv(filepath+'deliveries.csv')
+temp = df1.groupby('batsman')['batsman_runs'].sum().reset_index()
+temp.to_csv('created/batsman_runs_created_in_csv.csv') # this also creates a index column
+temp.to_csv('created/batsman_runs_2_created_in_csv.csv', index=False) # this eliminates the index
+
+temp = df1.pivot_table(index="batsman", columns="bowling_team", values="batsman_runs", aggfunc='sum')
+temp.to_csv('created/batsman_pivot_table_in_csv.csv')
+
+
+
+
+
+
+df1 = pd.read_csv(filepath+'deliveries.csv')
+temp1 = df1.groupby('batsman')['batsman_runs'].sum().reset_index()
+temp1.to_excel('created/batsman_runs_created_in_excel.xlsx', index=False)
+
+temp2 = df1.pivot_table(index="batsman", columns="bowling_team", values="batsman_runs", aggfunc='sum')
+temp2.to_excel('created/batsman_pivot_table_in_excel.xlsx', sheet_name='pivot_table') # sheet in excel
+
+# creating multiple sheets
+with pd.ExcelWriter('created/batsman_in_excel.xlsx') as writer:
+    temp1.to_excel(writer, sheet_name='batsman runs')
+    temp2.to_excel(writer, sheet_name='pivot table')
+
+
+
+
+
+
+temp = df1.query('batsman_runs == 6').pivot_table(index='over', columns='ball', values='batsman_runs', aggfunc='count')
+temp.to_html('created/sixes_heatmap.html')
+
+
+
+
+
+temp = df1.groupby(['batting_team', 'batsman'])['batsman_runs'].sum().unstack()
+temp.to_json('created/ipl.json')
