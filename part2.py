@@ -20,7 +20,7 @@ headers = {
 
 df = pd.DataFrame()
 
-for i in range(1,500): # there are 551 pages
+for i in range(1,500): # getting data of first 499 pages
 
     print(i)
 
@@ -36,5 +36,5 @@ for i in range(1,500): # there are 551 pages
         temp = temp[['id','title','popularity','vote_average','vote_count','overview']]
         df = pd.concat([df, temp], ignore_index=True)
 
-df.to_csv('tmdb.csv', index=False)
+df.to_csv('created/tmdb.csv', index=False)
 print(df)
