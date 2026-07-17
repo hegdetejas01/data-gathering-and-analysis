@@ -215,3 +215,136 @@ Steps involved in Data cleaning
 - Define
 - Code
 - Test
+
+
+
+
+
+
+##################################################################################
+EXPLORATORY DATA ANALYSIS
+##################################################################################
+
+Why EDA?
+    It gives better understanding of the dataset
+
+    1. For Model Building
+    2. Analysis and Reporting
+    3. Validate Assumption
+    4. Handling the Missing Data (either remove or add value for missing place)
+    5. Feature Engineering for Machine Learning
+    6. Detecting Outliers
+
+
+step1 : Write them for every column of the DF
+step2 : Univariate
+step3 : Bivariate
+step4 : Multivariate
+step5 : Feature Engineering
+
+
+
+ Column Type/ Data Type
+    1. Numerical
+    2. Categorical
+    3. Mixed
+
+# STEP1: Write them for every column of the DF
+Eg: Consider Titanic dataset
+    # Numerical - age, fare, passengerid
+    # Categorical - survived, pclass, sex, sibsp, parch
+    # Mixed - name, ticket, cabin
+
+
+# STEP2: Do univaiate analysis on columns
+
+    Univariate Analysis :
+
+        Univariate analysis focuses on analyzing each feature(column) in the dataset independently.
+
+        How does univaiate analysis help ?
+        1). **Distribution analysis**: The distribution of each feature is examined to identify its shape, central tendency, and dispersion.
+
+        2). **Identifying potential issues**: Univariate analysis helps in identifying potential problems with the data such as outliers, skewness, and missing values
+
+
+        The shape of a data distribution refers to its overall pattern or form as it is represented on a graph. Some common shapes of data distributions include:
+
+            - **Normal Distribution**: A symmetrical and bell-shaped distribution where the mean, median, and mode are equal and the majority of the data falls in the middle of the distribution with gradually decreasing frequencies towards the tails.  
+
+            - **Skewed Distribution**: A distribution that is not symmetrical, with one tail being longer than the other. It can be either positively skewed (right-skewed) or negatively skewed (left-skewed).
+
+            - **Bimodal Distribution**: A distribution with two peaks or modes.
+
+            - **Uniform Distribution**: A distribution where all values have an equal chance of occurring.
+
+        The shape of the data distribution is important in identifying the presence of outliers, skewness, and the type of statistical tests and models that can be used for further analysis.
+
+
+
+        **Dispersion** is a statistical term used to describe the spread or variability of a set of data. It measures how far the values in a data set are spread out from the central tendency (mean, median, or mode) of the data.
+
+        There are several measures of dispersion, including:
+
+            - **Range**: The difference between the largest and smallest values in a data set.
+
+            - **Variance**: The average of the squared deviations of each value from the mean of the data set.
+
+            - **Standard Deviation**: The square root of the variance. It provides a measure of the spread of the data that is in the same units as the original data.
+
+            - **Interquartile range (IQR)**: The range between the first quartile (25th percentile) and the third quartile (75th percentile) of the data.
+
+        Dispersion helps to describe the spread of the data, which can help to identify the presence of outliers and skewness in the data.
+
+
+    Therefore, univariate analysis helps to know about shape(how it looks on graph), central tendency(mean, median, mode), dispersion(spread, std deviation, variance, min max, interquartile range)
+
+
+### Steps of doing univariate analysis on numerical columns
+
+    1. **Descriptive Statistics**: Compute basic summary statistics for the column, such as mean, median, mode, standard deviation, range, and quartiles. These statistics give a general understanding of the distribution of the data and can help identify skewness or outliers.
+
+    2. **Visualizations**: Create visualizations to explore the distribution of the data. Some common visualizations for numerical data include histograms, box plots, and density plots. These visualizations provide a visual representation of the distribution of the data and can help identify skewness an outliers.
+
+    3. **Identifying Outliers**: Identify and examine any outliers in the data. Outliers can be identified using visualizations. It is important to determine whether the outliers are due to measurement errors, data entry errors, or legitimate differences in the data, and to decide whether to include or exclude them from the analysis.
+
+    4. **Skewness**: Check for skewness in the data and consider transforming the data or using robust statistical methods that are less sensitive to skewness, if necessary.
+    
+    5. **Conclusion**: Summarize the findings of the EDA and make decisions about how to proceed with further analysis.
+
+
+### Steps of doing Univariate Analysis on Categorical columns
+
+    1. **Descriptive Statistics**: Compute the frequency distribution of the categories in the column. This will give a general understanding of the distribution of the categories and their relative frequencies.
+
+    2. **Visualizations**: Create visualizations to explore the distribution of the categories. Some common visualizations for categorical data include "count plots and pie charts". These visualizations provide a visual representation of the distribution of the categories and can help identify any patterns or anomalies in the data.
+        - Count Plot, Pie Chart
+
+    3. **Missing Values**: Check for missing values in the data and decide how to handle them. Missing values can be imputed or excluded from the analysis, depending on the research question and the data set.
+
+    4. **Conclusion**: Summarize the findings of the EDA and make decisions about how to proceed with further analysis.
+
+
+
+
+
+
+
+STEP3 : BIVARIATE Analysis
+
+    Steps of doing Bivariate Analysis
+
+        1. Select 2 cols
+
+        2. Understand type of relationship
+
+            1. **Numerical - Numerical**
+                a. You can plot graphs like scatterplot(regression plots), 2D histplot, 2D KDEplots
+                b. Check correlation coefficent to check linear relationship
+
+            2. **Numerical - Categorical** - create visualizations that compare the distribution of the numerical data across different categories of the categorical data.
+                a. You can plot graphs like barplot, boxplot, kdeplot violinplot even scatterplots
+
+            3. **Categorical - Categorical**
+                a. You can create cross-tabulations or contingency tables that show the distribution of values in one categorical column, grouped by the values in the other categorical column.<br>
+                b. You can plots like heatmap, stacked barplots, treemaps
