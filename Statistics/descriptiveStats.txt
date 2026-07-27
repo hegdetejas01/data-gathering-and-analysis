@@ -1,0 +1,155 @@
+Types of Data (column in dataset)
+    1. Categorical/qualitative data - eg: gender
+        a). Nominal Data - Categories donot have any order. eg: state of birth
+        b). Ordinal Data - Categories have order. eg: rating of the data
+
+    2. Numerical/quantitative data - eg: age
+        a). Discrete Data - Can hold only integer data. eg: rank, age etc
+        b). Continuous Data - It can take any value (decimals). eg: weight
+
+
+
+#####################################################################################################
+                                    Measure of Central Tendency
+#####################################################################################################
+
+It represents a typical/central value of the dataset
+It provides the summary of the data by identifying a single value that is most representative of the dataset as a whole
+
+It involves the calculation of Mean, Median, Mode etc
+
+############ MEAN ############
+* Mean means average - where does the center lie in the data
+* Population mean (myu) may be different from Sample mean(x-bar)
+* If there are any outliers, then the mean value be deviated. Mean will be shifted towards outliers. Therefore always check for outliers before applying mean
+
+############ MEDIAN ############
+* Middle value in the dataset when the data is arranged in order
+* This eliminates the drawback of outliers encountered in mean
+
+############ MODE ############
+* The most frequently appearing data in the dataset
+* Usually used on categorical data or discrete data
+
+############ WEIGHTED MEAN ############
+* Assigning different weights for calculating mean
+* Weighted mean is the sum of the products of each value and its weight, divided by the sum of the weights.
+
+############ TRIMMED MEAN ############
+* This is calculated by removing the certain percentage of smallest and largest values from the dataset and then taking the mean of the ramaining values
+
+
+
+
+
+#####################################################################################################
+                                    Measure of Dispersion
+#####################################################################################################
+
+It tells the spread/variability of the dataset. It provides the info about how data is distributed around central tendency of the dataset.
+
+############ RANGE ############
+* Range is the differnce between the minimum value in the dataset and the maximum value in the dataset
+* It is highly affected by outliers - hence not reliable
+
+############ VARIENCE ############
+* It is the average of the squared difference between each data point and the mean
+* It measures the average distance of each data point from the mean
+* Varience is not the spread but it is proportional to the spread of the data
+* More prone to outliers
+
+v^2 (variance) = (sum((x-myu)^2))/N                 
+:This is POPULATION VARIENCE
+
+s^2 = (sum((x-xbar)^2))/(n-1)                       
+:This is SAMPLE VARIENCE. It is getting divided by (n-1) and not n
+
+
+############ MEAN ABSOLUTE DEVIATION ############
+* It is the mod ( | ) of the difference between each data point and the mean
+* It doesn't help in the inference (sample --> population)
+* But it is less prone to outliers than varience
+
+MAD = (sum(mod(x-xbar)))/n
+
+
+############ STANDARD DEVIATION ############
+* Square-root of varience
+* The unit of std is same as that of data and helps in comparision
+
+std = sqrt((sum((x-myu)^2))/N)
+
+
+############ COEFFICIENT OF VARIATION ############
+* The ratio of the standard deviation to the mean expressed as a percentage
+* CV = (std/mean) *100
+* Helps to compare the distribution of differnt columns of the data
+
+
+
+
+
+#####################################################################################################
+                                    Graphs on Univariate Analysis
+#####################################################################################################
+
+Graph depend on the type of data - categorical or numerical
+
+
+############################################ CATEGORICAL ############################################
+
+# Frequency distribution table - 
+* summarises the number of times(frequency) that each value occurs in the dataset
+* bar chart can be plotted on this data
+
+# Relative frequency - 
+* It is the proportion or percentage of category in the dataset
+* Pie chart can be plotted
+
+# Cumulative frequency -
+* Running total of frequencies of a variable or category in a dataset or sample.
+* Calculated by adding up the frequencies of the current category and all previous categories in the dataset or sample (similar to cumulative sum and product)
+
+
+
+############################################# NUMERICAL #############################################
+
+# Frequency distribution table - 
+* create bins/buckets of the dataset
+* this can be plotted on histogram
+
+eg: all ages are clasified into buckets - [10-20][20-30] i.e creating categories
+
+Shapes of Histogram:
+1. Symmetric
+2. Bimodal, Trimodal
+3. Left Skewed
+4. Right Skewed
+5. Uniform
+6. No pattern
+
+
+
+
+
+#####################################################################################################
+                                    Graphs on Bivariate Analysis
+#####################################################################################################
+
+################################### CATEGORICAL - CATEGORICAL DATA ##################################
+
+# Contingency table/ crosstab
+* it displays the frequencies/relative frequencies of the observed values of the two variables organised into rows and tables
+* used to summarise the relationship between 2 columns
+
+##################################### NUMERICAL - NUMERICAL DATA ####################################
+
+# Scatter plot
+* positively co-related
+* negatively co-related
+* no relationship
+
+#################################### CATEGORICAL - NUMERICAL DATA ###################################
+
+Bar chart: Y axis will be a aggregate function - count, mean, median, max, min, std etc
+Contingency table: 

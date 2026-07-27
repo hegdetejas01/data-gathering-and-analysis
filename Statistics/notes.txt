@@ -1,0 +1,18 @@
+What is statistics?
+    It is a part of mathematics which helps to work with data to analyse, collect, interpret large amount of data and to male decision based on it.
+
+
+Types of statistics
+    1. Descriptive statistics - Deals with collection, organise, analyse, interpret, present data. It generates the main summary of the data without making any inference or prediction.
+
+    2. Inferential statistics - Deals with making inference, prediction, conclusions of the larger population based on sample data
+        This helps in - hypothesis testing, confidence testing, analysis if varience, regression analysis, chi-square test, sampling techniques, bayesian statistics etc
+
+
+Population versus Sample
+    1. Population - Refers to the entire group of individuals or objects that we are interested in studying/surveying
+
+    2. Sample - It is the subset of Population. They are selected from population to study
+        * sample size
+        * random data (non biased)
+        * all representative
