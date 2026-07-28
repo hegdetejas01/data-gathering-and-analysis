@@ -1,2 +1,155 @@
-### Quantiles and Percentiles ###
+### Quantiles ###
 
+    * Quantiles are measures used to divide a set of numerical data into equal-sized groups, with each group containing an equal number of observations
+    * These are important measures of variability
+    * Helps to identify outliers
+
+    They are of several types
+        1. Quartiles: Divide the data into 4 equal parts, Q1(25th percentile), Q2(50th percentile or median), Q3(75th percentile)
+
+        2. Deciles: Divide the data into 10 equal parts
+
+        3. Percentile: Divide the data into 100 equal parts
+
+        4. Quintiles: Divide the data into 5 equal parts
+
+    * Data is sorted from low to high
+    * This is basically finding the location of an observations
+    * They many not be the actual value of the data
+
+
+### Percentiles ###
+
+    * It is a measure that represents the percentage of observations in a dataset that falls below a particular value.
+    * Suppose in JEE exam, if i get 99 percentile rank, that means, i am ahead of 99 percentile students and only 1 percent of students are ahead of me
+
+    Formula:
+        Calculating Percentile Value: Where will the particular percentile lie (PL)
+        PL = (p/100)*(N+1)
+
+            PL : the desired percentile value location
+            N : total number of observation in datasset
+            p : the percentile rank (expressed as percentage)
+
+
+        Percentile of the value: What will be the percentile of the given datapoint
+        Percentile Rank = (x + 0.5y) / n
+
+            x : number of values below the given value
+            y : number of values equal to given value
+            n : total number of items in the data set
+
+
+### 5 Number Summary ###
+    * It provides the summary of the data set
+    * It consists of 5 values that divide the dataset into 4 equal parts
+    * It is often represented using box plot
+
+    1. Minimum Value - smallest value in the dataset
+    2. Q1(first quartile) - 25th percentile
+    3. Median - 50th percentile
+    4. Q3(third quartile) - 75th percentile
+    5. Maximum Value - largest value in dataset
+
+
+    Interquartile Range 
+        IQR is the measure of variability that is based on five number summary.
+        It is the difference between 3rd and 1st quartile of the dataset
+
+
+### BOX PLOT ###
+    * Also called as Box-and-Whisker plot
+    * Box plot displays a summary of the data, including the minimum and maximum values, the first quartile (Q1), the median (Q2), and the third quartile (Q3)
+    * It also shows the outliers
+    
+    * Easiest way to see distribution of data
+    * Tells the skewness of the data
+    * Helps to compare categories/column of data
+
+
+    * The order as present in the box plot
+        1. min = q1 - 1.5(IQR)
+        2. q1
+        3. median
+        4. q3
+        5. max = q3 + 1.5(IQR)
+
+
+
+### Scatter Plots ###
+    * For numerical-numerical data
+    * Concept of co-varience and co-relation
+
+    * Co-Varience
+        1. What problem does it solve?
+            - Mean just gives the center of the data. It doesn't give any info about spread. This is solved by variance
+            - Varience also gives same kind on results in some cases even if the data set is different. This is solved by co-varience
+
+        2. What is co-variance?
+            - It describes the degree to which two variables are linearly related.
+            - It measures how much two variables change together, such that when one variable increase, does the other variable increase or decrease
+            - Eg: Suppose if x is increasing and correspondingly 
+                    -> if y is also increasing, then co-variance is positive,
+                    -> if y is decreasing, then co-variance is negative,
+                    -> if y is not changing, co-variance is almost 0 (non releated)
+
+        3. Calculation
+            For Population
+            cv = (sum((X-myux)*(Y-myuy))) / N
+
+            For Sample
+            cv = (sum((X-xbar)*(Y-ybar))) / (n-1)
+
+        4. Disadvantages of co-varience
+            - It doesn't tell the strength of the relationship between the 2 variables
+            - because co-variance is affected by the magnitude of the variables
+
+        * Co-variance with itself 
+            Formula 
+                cv = (sum((X-xbar)*(Y-ybar))) / (n-1)
+                cv = (sum((X-xbar)*(X-xbar))) / (n-1)
+                cv = (sum((X-xbar)^2)) / (n-1)          --> This is Varience Formula
+
+    
+    * Co-Relation
+        1. What problem does it solve?
+            - strong positive relation
+            - weak positive relation
+            - moderate positive relation
+            - strong negative relation
+            - weak negative relation
+            - moderate negative relation
+            - no correlation
+
+            This helps to quantify the strength between 2 variables (which can't be solved by co-variance)
+
+        2. What is co-relation?
+            - It refers to relationship between two or more variables
+            - It measures the degree to which two variables are related and how they tend to change together
+            - Measured using correlation coefficient
+            - It lies between -1 to 1
+            -   0 to 1: positive co related, 
+                -1 to 0 : negative co related
+            -   co relation of -1 represents perfect negative co-relation, 
+                co relation of +1 represents a perfect positive co relation and 
+                co relation of 0 represents no relation
+
+        3. Formula
+
+            cr = (cv(x,y))/(std(x) * std(y))
+
+
+
+### Co Relation and Causation ###
+    * Co relation doesn't imply causation
+    * Means that just because two variables are associated with each other, it does not necessarily mean that one causes the other. In other words, a correlation between two variables does not necessarily imply that one variable is the reason for the other variable's behaviour
+    * Thus, while correlations can provide valuable insights into how different variables are related, they cannot be used to establish causality. Establishing causality often requires additional evidence such as experiments, randomized controlled trials, or well-designed observational studies
+
+
+### Multivariate Analysis ###
+    1. 3D Scatter Plots
+    2. Using Hue parameter for bar graph in Seaborn
+    3. Facetgrids
+    4. Jointplot
+    5. Pair Plots
+    6. Bubble Chart
