@@ -1,0 +1,196 @@
+#####################################################################################################
+                                    PROBABILITY DISTRIBUTION
+#####################################################################################################
+
+### Random Variables ###
+    * Used in stats and probability
+    * It is the set of possible values from a random experiment
+    * Eg
+        - Random Variable(possible outcome) for random experiment tossing a coin: Head(1) or Tail(0)
+        - Random Variable(possible outcome) for random experiment throwing a dies: 1,2,3,4,5,6
+    * Random Variable can hold multiple values
+    * Denoted in Capital Letter
+
+    * Sample Space : in probability, probable outcome of random experiment or all the values that a random variable can have
+
+    Types of Random Variable
+        1. Discrete RV - Eg. experiment of throwing dies: 1,2,3,4,5,6
+        2. Continuous RV - it can hold a range of values, Eg. CGPA of a student: 5.6, 7.9
+
+
+### Probability distribution ###
+    What are probability distribution? 
+        It is a list of all possible outcomes of a random variable along with their corresponding probability values
+
+        Eg:
+            Tossing a coin
+                Head: 0.5
+                Tail: 0.5
+
+            Throwing a dies
+                1 : 1/6
+                2 : 1/6
+                3 : 1/6
+                4 : 1/6
+                5 : 1/6
+                6 : 1/6
+
+            Sum of numbers after throwing 2 die at a same time
+                2 : 1/36
+                3 : 2/36
+                4 : 3/36
+                5 : 4/36
+                6 : 5/36
+                7 : 6/36            -> high probability
+                8 : 5/36
+                9 : 4/36
+                10 : 3/36
+                11 : 2/36
+                12 : 1/36
+
+
+    If the number of outcome is large this distribution table will be tedious to write
+    If the outcome is continuous the distribution table can't be plotted
+
+    "Solution: Write a mathematical function to model relationship between outcome(X) and probability(Y)"
+        * the function will calculate the probability
+        * easy to plot graph
+    This function is called as PROBABILITY DISTRIBUTION FUNCTION (PDF)
+    PDF represent what is the probability of a particular outcome
+
+
+### Types of PDF ###
+    1. PDF for Discrete RV
+    2. PDF for Continuous RV
+
+
+### Famous PDF ###
+    1. normal
+    2. uniform
+    3. beta
+    4. bernoli
+    5. poisson
+    6. binomial
+    7. chi-square
+    8. exponential
+    9. log-normal
+    10. pareto
+
+* This PDF graph tells the distribution to some extent
+* If it matches to some of the famous PDF, then automatically more info of that data can be found out
+
+* Parameter of the PDF : These are numerical value that determine shape, location, scale of distribution
+Different PDF have different parameter 
+
+
+### PROBABILITY DISTRIBUTION FUNCTION ###
+    * It is a mathematical function that describes the probability of obtaining different values of a random variable in a particular probability distribution
+
+    # Types of PDF
+        1). Probability Mass Function -
+                PDF of the discrete RV is called as PMF
+
+        2). Probability Density Function -
+                PDF of the continuous RV is called as PDeF
+
+        3). Cumulative Distribution Function - 
+                Applicable on both PMF and PDeF
+
+
+### PROBABILITY MASS FUNCTION ###
+
+    * It describes the probability distribution of a discrete random variable
+    * It assigns a probability to each possible value of the random variable of discrete RV
+    * The probability assigned by PMF must satisfy the following 2 conditions
+        1. probability assigned should be greater than or equal to 0 (non negative)
+        2. sum of all probabilities = 1
+    * Y axis represents the probability
+
+    * Eg
+        Rolling a dies:
+            y = f(x), where
+                y   -> 1/6 if x in {1,2,3,4,5,6}
+                    -> 0   otherwise
+
+
+    * Bernoulli Distribution
+    * Binomial Distribution
+
+
+### CUMULATIVE DISTRIBUTION FUNCTION of PMF ###
+    * It describes the probability that a random variable X with a given probability distribution will be found at a value less than or equal to x
+    * Eg:
+        Rolling a dies - what is the probability that the value will be less than or equal to 4
+        f(x<=4) = f(4) + f(3) + f(2) + f(1) = 4/6 = 2/3
+
+        i.e if x = 4 in CDF, it tells the probability that the value will be less than or equal than 4 (2/3)
+        if x = 4 in PMF, it tells the probability that the value will be exactly 4
+
+
+
+### PROBABILITY DENSITY FUNCTION ###
+    * It describes the probability distribution of a continuous RV
+    * Y axis here doesn't represent probability, it is PROBABILITY DENSITY
+
+    1. Why probability density and not probability?
+        * X axis has infinite values and hence a probability of getting a particular value is almost equal to ZERO
+        * Therefore, probability density is in Y axis
+
+    2. What does the area under the graph represents?
+        * It represents what is the probability of cgpa of a student lie between 0 and 10 (both inclusive)
+        * Area will be equal to ONE 
+        * Entire probability of all the possible outcomes
+        * Eg:
+            Suppose i need the probability of cgpa becoming a value between 8-9, probability will be the area under the graph where x = 8 and x = 9
+            - This range can also be shrinked Eg: 8 - 8.001
+
+        * In PDeF the area under the graph represents probability and not the y axis
+
+    * Normal distribution
+    * Log Normal distribution
+    * Poisson distribution
+
+
+    3. How is the graph plotted in PDeF?
+        * Y has probability density - Done by Density Estimation
+        * X has continuous value
+        
+
+### DENSITY ESTIMATION ###
+    * used to estimate PDeF of a RV based on data
+    * used to estimate the probability distribution of input data or to model the likelihood of certain events or outcomes
+
+    * Two methods of Estimation
+        1. Parametric - assume that the data follows a specific probability distribution (such as a normal distribution)
+
+        2. Non Parametric - do not make any assumptions about the distribution and instead estimate it directly from the data
+
+    * Commonly used techniques for density estimation include kernel density estimation (KDE), histogram estimation, and Gaussian mixture models (GMMs)
+
+
+# Parametric Density Estimation - method of estimating probability density function of a RV by assuming that the underlying distribution belongs to a specific parametric family or probability distribution such as normal, poisson etc
+
+
+# Non Parametric Density Estimation - 
+    * Is applied when distribution is not clear or it is not of famous type. 
+    * It is used to estimate the probability density function of a random variable without making any assumptions about the underlying distribution. 
+    * It is also referred to as non-parametric density estimation because it does not require the use of a predefined probability distribution function unlike parametric methods.
+    * This involves constructing an estimate of the probability density function using the available data. This is typically done by creating a kernel density estimate
+    * it does not require the assumption of a specific distribution
+    * it can be computationally intensive and may require more data to achieve accurate estimates
+    * this is done by KDE - Kernal Density Estimation
+
+
+### KERNAL DENSITY ESTIMATION ###
+    * The KDE technique involves using a kernel function to smooth out the data and create a continuous estimate of the underlying density function
+    * Take a kernal (probability distribution), usually Gaussian distribution (normal distribution). The thickness(bandwidth) of the normal distribution will be decided by the standard deviation.
+    * Consider each data point, make it a center(mean) and make a guassian kernal (distribution)
+    * Add all the y values up the mean and the resultant will create the main distribution
+    * if std is very less, then the thickness will be less, and the resultant will have spike peaks on them, if the value is very high, then the resultant will be smooth
+
+
+
+### CUMULATIVE DISTRIBUTION FUNCTION of PDeF ###
+    * It represents the probability of occurance of x or less than x for a given x
+    * Cumulative graph is obtained by the area under the curve(integration) of PDeF
+    * PDeF is obtained by the slope(differentiation) of Cumulative Curve
