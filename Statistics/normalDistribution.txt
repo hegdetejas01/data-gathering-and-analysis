@@ -1,0 +1,120 @@
+### Normal Distribution ###
+
+    * Also called as Gaussian Distribution or Bell Curve
+    * It is a continuous probability distribution(PDeF) that is symmetrical around the mean with a bell shaped curve
+    * Tail doesn't touch X axis, it moves towards infinity
+    * Majority of the points lies in the center (where probablity is high)
+
+    * It has 2 parameter : mean and std deviation
+    * Mean represents the center of the distribution
+    * Std represents the spread of the distribution
+
+    * Area under the graph = 1
+
+Why is this important?
+    * Because of the commonality in nature. Many natural phenomena follow a normal distribution, such as the heights of people, the weights of objects, the IQ scores of a population, and many more.
+
+Formula
+
+    y = f(x) = ((e ^ (-1/2)*((x-mu)/std)**2)/(std * sqrt(2*pi)))
+
+    * changing mean moves the graph in x axis keeping the height and thickness same
+    * changing the std deviation changes the thickness of the distribution
+    * increase in std, makes the graph sharper and narrower, decrease in graph makes the graph more wider
+
+
+
+### Standard Normal Variate/ Standard Normal Distribution (z) ###
+    * Special case of normal distribution
+    * It is a normal distribution when mu = 0 and std = 1
+
+    * Standardising the normal distribution helps to compare different distribution with each other
+    * It helps to calculate the probability using standard table or software
+
+
+    Formula
+        * substitute mu = 0, std = 1 in normal distribution equation
+
+        z = f(x) = (e ^ ((-x**2)/2)) / sqrt(2*pi)
+
+
+    Convert Normal Distribution with mean mu and std deviation std
+        For all data points x, do : ((x-mu)/std)
+
+    
+    Suppose the heights of adult males in a certain population follow a normal distribution with a mean of 68 inches and a standard deviation of 3 inches. What is the probability that a randomly selected adult male from this population is taller than 72 inches?
+        z = (72 - 68) / 3 = 1.33
+        In the standard normal variate, just consider the probability of age > 1.33
+
+        ### Z Tables ###
+            https://www.ztable.net/
+
+            * for every x, the probability is present in Z-Table for every Z Score
+            * Z-Score here is 1.33
+            * Z-Table tells the probability of getting a value less than 1.33 = 0.90824 = 90.8 percent(probability of age being less than of equal to 72 inches (1.33))
+
+            * Probability of age being more than 72 inches = 100 - 90.8 = 9.2 percent
+
+
+    For a Normal Distribution X~(u,std) what percent of population lie between mean and 1 standard deviation, 2 std and 3 std?
+        Between mu and 1 std: 84.13 percent - 50 percent = 34.14 percent
+            Therefore between -1 std to +1 std, 68.28 percentage of the data points lies
+
+        Between mu and 2 std: 97.72 percent - 50 percent = 47.72 percent
+            Therefore between -2 std to +2 std, 95.45 percentage of the data points lies
+
+        Between mu and 3 std: 99.86 percent - 50 percent = 49.86 percent
+            Therefore between -3 std to +3 std, 99.73 percentage of the data points lies
+
+
+    Emperical Rule - 
+        The normal distribution has a well-known empirical rule, also called the 68-95-99.7 rule, which states that approximately 68% of the data falls within one standard deviation of the mean, about 95% of the data falls within two standard deviations of the mean, and about 99.7% of the data falls within three standard deviations of the mean.
+
+
+### Properties of Normal Distribution ###
+    1. Symmetricity - 
+        * Symmetrical around the mean
+        * Mirror image across the mean
+    
+    2. Measure of central tendency - 
+        * Mean, Median, Mode will be equal
+    
+    3. Emperical Rule
+
+    4. Area under the graph - 
+        * Equal to 1
+
+
+
+### Skewness ###
+    * Normal Distribution is symmetric
+    * Skewness indicates that the data is not symmetrical, which means it is not normally distributed
+    * It is a measure of the asymmetry of a probability distribution
+    * It describes the degree to which a dataset deviates from the normal distribution in a skewed distribution, the mean, median, and mode are not equal, and the distribution tends to have a longer tail on one side than the other
+    * Greater the skewness, greater the distance between mean median mode
+    * Skewness can be positive, negative, or zero
+
+    *   Positive skewness means that the tail of the distribution is longer on the right side (Right Skewed): mode < median < mean,
+        Negative skewness means that the tail is longer on the left side (Left Skewed): mode > median > mean,
+        Zero skewness indicates a perfectly symmetrical distribution (Normal Distribution)
+
+    *   skewness = 0 : Normal
+        skewness = -0.5 to +0.5 : Almost Normal and con be considered normal for all practical purposes
+        skewness = -1 to -0.5 AND +0.5 to +1 : Moderately skewed
+        skewness = < -1 AND > +1 : Highly skewed
+    
+    * Formula to find the skewness: see pdf (normalDistribution.pdf) and python file (normalDistribution.py)
+
+
+### CDF of Normal Distribution ###
+    * Integration on PDeF = Gives the CDF
+    * integrate in range of (-infinity) till that point 
+
+    * Differentiation/Slope of CDF = Gives the PDeF
+
+### Uses in DataScience ###
+    * Helps in outlier detection : above 3 std and below -3 std
+    * Assumption on data for ML algorithms, eg: Linear Regression and GMM, are considered as normal
+        that is, performance of the model gives high performance when trained on normally distributed data
+    * Hypothesis testing
+    * Central Limit Theorem
