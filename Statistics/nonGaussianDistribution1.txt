@@ -1,0 +1,4 @@
+Continuous non gaussian distributions 
+1. Uniform distribution
+2. Log normal distribution
+3. Pareto distribution
