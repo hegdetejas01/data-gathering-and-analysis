@@ -118,3 +118,72 @@ Formula
         that is, performance of the model gives high performance when trained on normally distributed data
     * Hypothesis testing
     * Central Limit Theorem
+
+
+### 4 Moments is Statistics ###
+    1. Mean
+    2. Variance/Std deviation
+    3. Skew
+    4. Kurtosis
+
+# Kurtosis:
+    * It is the 4th moments of probability theory
+    * Kurtosis (meaning "curved, arching") is a measure of the "tailedness" of the probability distribution of a real-valued random variable.
+    * Fatness of the tails tells the density of outliers : This is Kurtosis
+    * Eg: Fatter tails : meaning there are more outliers, will merge with X lately compared to thin tails
+    * It is NOT about the peakedness of the curve
+
+    Formula : nonGausianDistribution1.pdf
+
+
+    USE CASES:
+        * Kurtosis risk refers to the risk associated with the possibility of extreme outcomes or "fat tails" in the distribution of returns of a particular asset or portfolio. More the thickness of the tails more is the risk associated with it. It indicates that there is a greater probability of large losses or gains occurring
+
+    Excess Kurtosis: 
+        * It is a measure of how much more peaked/flat a distribution is compared to the normal distribution(Kurtosis = 0 for normal distribution). It is calculated by subtracting 3 from sample Kurtosis coefficient
+
+    Types of Kurtosis:
+        1. Leptokurtic:
+            * It is a distribution with positive excess kurtosis.
+            * Leptokurtic distribution has fatter tails.
+            * This indicates that there are more extreme values or outliers in the distribution.
+
+        2. Platykurtic:
+            * It is a distribution with negative excess kurtosis.
+            * Platykurtic distribution has thinner tails.
+            * This indicates that there are fewer extreme values or outliers in the distribution.
+
+        3. Mesokurtic:
+            * It is a distributions with zero excess kurtosis.
+            * Most prominent example of a mesokurtic distribution is the normal distribution family, regardless of the values of its parameters.
+            * Mesokurtic is a term used to describe a distribution with a excess kurtosis of 0, (same degree of peakedness as normal distribution).
+
+
+How to find whether a given distribution is normal or not??
+    1. Visual Inspection:
+        - Graph : histogram or density plot.
+
+    2. QQ Plot: 
+        - Quantile Quantile Plot
+
+    3. Statistical Test:
+        - Eg: Shapiro-Wilk test, Anderson-Darling test, Kolmogorov-Smirnov test etc
+
+
+### QQ PLOT ###
+    * It is used to assess the similarity of the distribution of two sets of data. It is particularly useful for determining whether a set of data follows a normal distribution.
+    * It takes 2 set os distribution [X, Y] and compares the similarity between them. X is the data that I want the knowledge of distribution and Y is a standard data of which I know the type of distribution.
+    * If the two sets of data have the same distribution, the points on the QQ plot will fall on a straight line. If the two sets of data do not have the same distribution, the points will deviate from the straight line.
+
+    Steps:
+        1. Take a theoretical data (Y)
+        2. Sort X and calculate the quantiles for the datapoints X
+        3. Sort Y and calculate the quantiles for the datapoints Y
+        4. Plot corresonding points of both on the graph
+        5. If it forms the straight line, then both the type of X matches with that of Y
+
+
+    Does QQ plot only detect normal distribution?
+        * No, it compares the distribution of X and Y.
+        * If Y is Normal distribution, then it checks if X is normal or not
+        * If Y is of someother type, then it checks if X is of that type or not

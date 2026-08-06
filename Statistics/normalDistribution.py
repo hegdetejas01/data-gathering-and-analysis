@@ -1,6 +1,8 @@
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import statsmodels.api as sm
 
 df = pd.read_csv("datasets/titanic.csv")
 
@@ -37,3 +39,34 @@ outlier_2 = df[df['Age'] < min_]
 print(df.shape)
 print(outlier_1.shape)
 print(outlier_2.shape)
+
+
+
+### QQ Plot ###
+
+df = sns.load_dataset('iris')
+print(df.head(2))
+
+sns.kdeplot(df['sepal_length'])
+plt.title("Looks like Normal distribution")
+plt.show()
+
+temp = sorted(df['sepal_length'].tolist())
+y_quant = []
+for i in range(1,101):
+    y_quant.append(np.percentile(temp, i))
+
+samples = np.random.normal(loc=0, scale=1, size=1000)
+x_quant = []
+for i in range(1,101):
+    x_quant.append(np.percentile(samples, i))
+
+sns.scatterplot(x=x_quant, y=y_quant)
+plt.title("Looks like a straight line")
+plt.show()
+
+
+
+fig = sm.qqplot(df['sepal_length'], line='45', fit=True)
+plt.title("Using Inbuilt Function")
+plt.show()
