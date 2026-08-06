@@ -124,7 +124,7 @@ Different PDF have different parameter
         f(x<=4) = f(4) + f(3) + f(2) + f(1) = 4/6 = 2/3
 
         i.e if x = 4 in CDF, it tells the probability that the value will be less than or equal than 4 (2/3)
-        if x = 4 in PMF, it tells the probability that the value will be exactly 4
+        if x = 4 in PMF, it tells the probability that the value will be exactly 4 (1/6)
 
 
 
@@ -176,17 +176,18 @@ Different PDF have different parameter
     * It is used to estimate the probability density function of a random variable without making any assumptions about the underlying distribution. 
     * It is also referred to as non-parametric density estimation because it does not require the use of a predefined probability distribution function unlike parametric methods.
     * This involves constructing an estimate of the probability density function using the available data. This is typically done by creating a kernel density estimate
-    * it does not require the assumption of a specific distribution
-    * it can be computationally intensive and may require more data to achieve accurate estimates
-    * this is done by KDE - Kernal Density Estimation
+
+    * It does not require the assumption of a specific distribution
+    * It can be computationally intensive and may require more data to achieve accurate estimates
+    * This is done by KDE - Kernal Density Estimation
 
 
 ### KERNAL DENSITY ESTIMATION ###
     * The KDE technique involves using a kernel function to smooth out the data and create a continuous estimate of the underlying density function
     * Take a kernal (probability distribution), usually Gaussian distribution (normal distribution). The thickness(bandwidth) of the normal distribution will be decided by the standard deviation.
     * Consider each data point, make it a center(mean) and make a guassian kernal (distribution)
-    * Add all the y values up the mean and the resultant will create the main distribution
-    * if std is very less, then the thickness will be less, and the resultant will have spike peaks on them, if the value is very high, then the resultant will be smooth
+    * Add all the y values up the datapoint(mean) and the resultant will create the main distribution
+    * If std is very less, then the thickness will be less, and the resultant will have spike peaks on them, if the value is very high, then the resultant will be smooth
 
 
 

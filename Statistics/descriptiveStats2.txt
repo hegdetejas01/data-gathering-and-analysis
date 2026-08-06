@@ -25,6 +25,7 @@
 
     Formula:
         Calculating Percentile Value: Where will the particular percentile lie (PL)
+        Eg: Find the 75th percentile score from the below data
         PL = (p/100)*(N+1)
 
             PL : the desired percentile value location

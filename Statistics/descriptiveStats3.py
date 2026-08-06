@@ -18,6 +18,7 @@ s = (pd.Series(l).value_counts()/x).sort_index()
 print(s)
 
 s.plot(kind='bar')
+plt.title("expriement of rolling a die once : approx= 1/6")
 plt.show()
 
 
@@ -30,6 +31,7 @@ s = (pd.Series(l).value_counts()/x).sort_index()
 print(s)
 
 s.plot(kind='bar')
+plt.title("tossing a coin once : approx = 1/2")
 plt.show()
 
 
@@ -48,6 +50,7 @@ s = (pd.Series(l).value_counts()/x).sort_index()
 print(s)
 
 s.plot(kind='bar')
+plt.title("sum of result of dies when thrown twice")
 plt.show()
 
 
@@ -62,6 +65,7 @@ s = (pd.Series(l).value_counts()/x).sort_index()
 print(s)
 
 np.cumsum(s).plot(kind='bar')
+plt.title("Cumulative Dritribution function if a single die is rolled")
 plt.show()
 
 
@@ -100,7 +104,7 @@ sample = np.hstack((sample1, sample2))
 plt.hist(sample, bins = 50)
 plt.show()
 
-model = KernelDensity(bandwidth=20, kernel='gaussian') # change this bandwidth and check
+model = KernelDensity(bandwidth=2, kernel='gaussian') # change this bandwidth and check # bandwidth is std
 sample = sample.reshape((len(sample), 1))
 model.fit(sample)
 
