@@ -2,3 +2,118 @@ Continuous non gaussian distributions
 1. Uniform distribution
 2. Log normal distribution
 3. Pareto distribution
+
+
+
+### UNIFORM DISTRIBUTION ###    
+    * It is a probability distribution where all outcomes are "equally" likely within a given range
+    * Spinning a die once - probability of getting 1,2,3,4,5,6 are equal and is 1/6.
+    * Skewess = 0
+
+    * 2 Types
+        1. Discrete Uniform Distribution: spinning a die once
+        2. Continuous Uniform Distribution
+
+    * Notation
+        X ~ u(a,b)
+            - a is the lower value in the range = 1 for rolling a die
+            - b is the higher value in the range = 6 for rolling a die
+
+    Egs of continuous uniform distribution
+        1. The height of a person randomly selected from a group of individuals whose heights range from 5.6 feet to 6.0 feet would follow a continuous uniform distribution.
+
+        2. The time it takes for a machine to produce a product, where the production time ranges from 5 to 10 minutes, would follow a continuous uniform distribution.
+
+    PDeF of Uniform Distribution
+        * Graph : nonGaussianDistribution1.pdf
+
+        * probability density = 1/(b-a)
+        * f(x) = 
+                    1/(b-a) for a <= x <= b 
+                    0 elsewhere
+
+    CDF of Uniform Distribution
+        * Graph : nonGaussianDistribution1.pdf
+
+    USE CASES:
+        1. Random Initialisation:
+        2. Sampling:
+        3. Data Augmentation:
+        4. Hyperparameter tuning:
+
+
+
+### Log Normal Distribution ###
+    * It is a heavy tailed(right skewed) continuous probability distribution of a random variable whose logarithm is normally distributed
+    * Log of this distribution is Normally Distributed
+    * The dataset which is right skewed and their log is a normal distribution
+
+    Eg: 
+        1. Length of comments posted in Internet discussion forums follows a log-normal distribution
+        2. Users' dwell time on online articles (jokes, news etc.) follows a log-normal distribution
+        3. The length of chess games tends to follow a log-normal distribution
+        4. In economics, there is evidence that the income of 97%–99% of the population is distributed log-normally
+
+    Notation:
+
+        X ~ lognormal(mu, std), provided that ln(X) ~ N(mu` , std`)
+
+    Formula: 
+
+        f(X) = ((e ^ (-1/2)*((ln(x)-mu)/std)**2)/(std * X * sqrt(2*pi)))
+
+    CDF of lognormal:
+        * graph : nonGaussianDistribution1.pdf
+
+    Checking Lognormal Distribution:
+        I have a dataset X, 
+        Calculate Log of X,
+        QQPlot for log(X) and Y, where Y is normally distributed,
+        If Y and log(X) are on the same line, then log(X) is normally distributed,
+        Thus, X is lognormal distributed
+
+
+### Pareto Distribution ###
+    * It is commonly used to model the distribution of wealth, income, and other quantities that exhibit a similar power-law behaviour, i.e. it is a special case of power-law
+
+    Power-Law : 
+        - It is a functional relationship between two variables, where one variable is proportional to a power of the other.
+
+        - If x and y are power variable then,   y = k * x^a
+
+        - 80:20 Rule = Whenever something is following power law, 20 percent will have 80 percent occupancy of the result
+            -- larger portion of the wealth of any society is owned by a smaller percentage of the people in that society
+            -- "80-20 rule" which says that 20% of the population controls 80% of the wealth
+
+    Notation:
+        X ~ Pr(alpha)
+
+    PDeF:
+        * Graph: nonGaussianDistribution1.pdf
+        * Greater the alpha, greater will be the height of the graph in Y axis
+        * Greater the alpha, less will be the thickness of the tail (thin tail)
+        * When alpha = infinity, pareto curve is a line parallel to Y axis
+        * skewed
+
+        Eg:
+            The sizes of human settlements
+            File size distribution of Internet traffic which uses the TCP protocol
+
+    NOTE: Only when alpha is 1.16, then 80-20 rule is applicable
+
+    Formula:
+        pdf = (alpha*(Xm^alpha))/(x^(alpha+1))
+
+    CDF:
+        * Graph: nonGaussianDistribution1.pdf
+
+    Checking Pareto Distribution:
+        * Log-Log Plot
+        * y = (alpha*(Xm^alpha))/(x^(alpha+1))
+        * take log of x and log of y 
+        * plot graph, if it has a negative slope and is a straight line (nonGaussianDistribution1.py), then it is pareto distribution
+
+
+
+
+###### Transformation ######

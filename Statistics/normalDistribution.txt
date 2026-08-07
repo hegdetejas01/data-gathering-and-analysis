@@ -133,7 +133,7 @@ Formula
     * Eg: Fatter tails : meaning there are more outliers, will merge with X lately compared to thin tails
     * It is NOT about the peakedness of the curve
 
-    Formula : nonGausianDistribution1.pdf
+    Formula : normalDistribution.pdf
 
 
     USE CASES:
