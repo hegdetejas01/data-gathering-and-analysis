@@ -117,3 +117,40 @@ Continuous non gaussian distributions
 
 
 ###### Transformation ######
+    * Converting the non-gaussian distribution which is normal like to exactly normal distribution
+    * Log Transformation and Box-Cox Transformation
+    * 3 types of transformer
+        1. Fucntion transformer : log, reciprocal, square/sqrt, custom
+        2. Power transformer : Box-Cox, Yeo-Johnson
+        3. Quantile transformer
+
+    ### Log Transform ###
+        * log(x)
+        * Log of every value in the dataset, it will become more normally distributed
+        * It doesn't work on negative values
+        * Works on Right Skewed Data
+
+    ### Reciprocal Transform ###
+        * 1/x
+
+    ### Square Transform ###
+        * x**2
+        * used for left skewed data
+    
+    ### Square Root Transform ###
+        * sqrt(x)
+
+    ### Box-Cox Transform ###
+        * Converting to normal distribution
+
+        xi^(lambda) =   (xi^(lambda)-1)/(lambda), if lambda != 0
+                        (ln(xi)), if lambda = 0
+
+        * Lambda varies from -5 to 5. In this process, we try all differenct possibilities of lambda and we choose the optimal value (resulting in the best approximation to tha normal distribution) for your variable.
+
+        * It is done by - maximum likelihood or bayesian
+
+        * xi should be greater than 0
+
+    ### Yeo-Johnson Transform ###
+        * It is the modification of box-cox to make it applicable for negative and 0 values as well
