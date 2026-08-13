@@ -54,6 +54,10 @@
     * mu = x-bar (+)(-) 1.13 * std / sqrt(n)
     This is the CI with a confidence level of 75 percent, i.e, z(alpha/2) = 1.13
 
+    * Forming standard normal variate
+
+        Z -> (xbar - mu)/(std/sqrt(n))
+
     * Interpreting Confidence Interval
         - Confidence level is not probability
         - if the CI of a age is [14-42] with confidence level of 95 percent means =
@@ -77,3 +81,48 @@
         1. Confidence Level (+ve relation)
         2. Sample size (+ve relation)
         3. Population std (-ve relation)
+
+
+
+
+
+### t-Procedure / Sigma Not Known Procedure ###
+    * This is more used than Z-Procedure because we usually don't have the knowledge of the std of the population
+    
+    * Assumptions:
+        1. Random sampling
+        2. Distribution of the population should be normal distribution except that if the distribution is not normal, CLT can be applied, and the sampling distribution (which will be normal distribution) can be used ( only when sample size > 30 )
+        3. Sample std deviation
+        4. All obersavtions are independent obersavtions
+
+    * Formula
+
+        CI = x-bar (+)(-) Z(alpha/2) * s / sqrt(n)
+            s = sample standard deviation
+
+            The below formula cant be used to calculate Z in t-Procedure because we don't know std of the population
+            Z -> (xbar - mu)/(std/sqrt(n))
+
+            Therfore we use,
+                Z -> (xbar - mu)/(s/sqrt(n))
+                - But, this doesn't give a normal distribution, instead it gives "STUDENT'S T DISTRIBUTION" - 
+                    * Similar to normal distribution but not exactly normal distribution
+                    * This is the theoratical distribution and donot occur in nature
+                    * It depends on 'degree of freedom' = n-1, n is sample size
+                    * The tail is fatter compared to the normal distribution
+                    * If, degree of freedom = infinity, 
+                    then normal distribution = student's t distribution
+
+                * Because of these reasons we can't use Z 
+                Therefore, the fomula becomes
+                    --> CI = x-bar (+)(-) T(alpha/2) * s / sqrt(n)
+    
+    * Final Formula:
+        CI = x-bar (+)(-) T(alpha/2) * s / sqrt(n)
+
+        For the same confidence level and for lower level of degree of freedom, generally 
+            --> Z(alpha/2) < T(alpha/2) , 
+                    This also increases the confidence interval range
+
+        
+
