@@ -1,0 +1,39 @@
+
+# Sampling Distribution
+    * It describes the statistical properties of a sample statistic (such as the sample mean or sample proportion or varience) computed from multiple independent samples of the same size from a population
+
+    * Population Versus Sample
+
+    * Getting a fixed size of sample from a population 'n' number of times and computing sample mean for all 'n' data sets (n sample means) : This is called as sampling distribution of sample mean
+
+    * Getting a fixed size of sample from a population 'n' number of times and computing sample variance for all 'n' data sets (n sample variance) : This is called as sampling distribution of sample variance
+
+    * This can be done for any measures, like co efficient of varience, std deviation etc
+
+
+    # Why is sampling distribution important?
+        * To estimate the variability of a sample statistic, which is useful for making inferences about the population
+        * Helps to compute confidence intervals, perform hypothesis tests, and make predictions about the population based on the sample data.
+
+
+
+
+### Central Limit Theorem ###
+    * The distribution of sample mean, of large number of independent and identically distributed rrandom variable, it will follow normal distribution. That is, sample distribution of sample mean will be normal distribution irrespective of the distribution of population.
+
+    * Assumptions:
+        1. Sample size > 30
+        2. Sample should be drawn from finite population or infinite population with finite variance
+        3. Random Variable should be independent and identically distributed.
+
+    * If the mean of population is mu and variance is v, then the mean and variance of the sample distribution of sample mean(std, variance etc) will be mu and v/n respectively, where n is the size of the sample.
+
+    *** Therefore, if i have the sampling data of the sample mean(std, variance etc), then i can get the data of mean and variance of the population ***
+    that is,  it allows us to make probabilistic inferences about a population based on a sample of data.
+
+    
+
+
+
+
+

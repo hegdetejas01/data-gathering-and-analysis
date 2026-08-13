@@ -1,0 +1,72 @@
+Discrete non gaussian distributions
+1. Bernoli
+2. Binomial
+
+### Bernoli Distribution ###
+    * It is a probability distribution that models a "binary outcome", where the outcome can be either success (represented by the value 1) or failure (represented by the value 0)
+
+    * It is commonly used in machine learning for modelling binary outcomes, such as whether a customer will make a purchase or not, whether an email is spam or not, or whether a patient will have a certain disease or not.
+
+    Eg:
+        1. Tossing a coin - head(1-success) or tail(0-failure)
+        2. Email Spam Classifier - spam(1-success) or not spam(0-failure)
+        3. Rolling a dies and getting a number 5
+
+
+    # PMF
+        P(X=x) = p^(x) * (1-p)^(1-x)
+
+    # Graph: nonGaussianDistribution2.pdf
+
+
+
+### Binomial Distribution ###
+    * It is a probability distribution that describes the number of successes in a fixed number of independent Bernoulli trials with two possible outcomes (often called "success" and "failure"), where the probability of success is constant for each trial.
+
+    * Repeating the Bernoli Trail for 'n' times (if n=1, it is bernoli distribution)
+    * All should be independent of each other
+    
+    Eg:
+        Probability of liking the video is (1/2 - either you like or not). Then what is the probability that
+
+        1. No one of the 3 person likes the video
+            Sample space = 8
+
+            1/2 * 1/2 * 1/2 = 1/8
+        
+        2. 1 of the 3 person will like it
+            Sample space = 8
+
+            3/8 
+        
+        3. 2 of the 3 person will like it
+            Sample space = 8
+
+            3/8
+
+        4. 3 of the 3 will like it
+            Sample space = 8
+
+            1/8
+
+    
+    # Formula
+
+        P(X=x) = nCx * p^(x) * (1-p)^(1-x)
+            n -> number of trials
+            p -> probability of success
+            x -> desired result
+
+    # Graph: nonGaussianDistribution2.pdf
+
+    # Criteria:
+        1. n trials 
+        2. Only 2 exclusive outcomes are possible, a success and a failure.
+        3. P(success) = p and P(failure) = 1-p and it is fixed from trial to trial
+        4. Independent trails.
+
+    # Application:
+        1. Binary Classification Problem
+        2. Hypothesis Testing
+        3. A/B testing
+        4. Logistic Regression
