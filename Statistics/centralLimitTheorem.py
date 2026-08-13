@@ -4,44 +4,44 @@ import pandas as pd
 import seaborn as sns
 
 
-# ### Central Limit Theorem - uniform distribution
+### Central Limit Theorem - uniform distribution
 
-# num_samples = 10000
-# sample_size = 300
-# distribution_range = (0, 1)
+num_samples = 10000
+sample_size = 300
+distribution_range = (0, 1)
 
-# # Generate samples from a uniform distribution
-# samples = np.random.uniform(distribution_range[0], distribution_range[1], (num_samples, sample_size))
+# Generate samples from a uniform distribution
+samples = np.random.uniform(distribution_range[0], distribution_range[1], (num_samples, sample_size))
 
-# # Calculate the sample means
-# sample_means = np.mean(samples, axis=1)
+# Calculate the sample means
+sample_means = np.mean(samples, axis=1)
 
-# # Plot the histogram of the sample means
-# plt.hist(sample_means, bins=30, density=True, edgecolor='black')
-# plt.title('Histogram of Sample Means (Poputaion:Uniform, SampleMean:Noraml)')
-# plt.xlabel('Sample Mean')
-# plt.ylabel('Density')
-# plt.show()
+# Plot the histogram of the sample means
+plt.hist(sample_means, bins=30, density=True, edgecolor='black')
+plt.title('Histogram of Sample Means (Poputaion:Uniform, SampleMean:Noraml)')
+plt.xlabel('Sample Mean')
+plt.ylabel('Density')
+plt.show()
 
 
-# ### Central Limit Theorem - exponential distribution
+### Central Limit Theorem - exponential distribution
 
-# num_samples = 10000
-# sample_size = 300
-# lambda_param = 2
+num_samples = 10000
+sample_size = 300
+lambda_param = 2
 
-# # Generate samples from a uniform distribution
-# samples = np.random.exponential(scale=1/lambda_param, size=(num_samples, sample_size))
+# Generate samples from a uniform distribution
+samples = np.random.exponential(scale=1/lambda_param, size=(num_samples, sample_size))
 
-# # Calculate the sample means
-# sample_means = np.mean(samples, axis=1)
+# Calculate the sample means
+sample_means = np.mean(samples, axis=1)
 
-# # Plot the histogram of the sample means
-# plt.hist(sample_means, bins=30, density=True, edgecolor='black')
-# plt.title('Histogram of Sample Means (Poputaion:Exponential, SampleMean:Noraml)')
-# plt.xlabel('Sample Mean')
-# plt.ylabel('Density')
-# plt.show()
+# Plot the histogram of the sample means
+plt.hist(sample_means, bins=30, density=True, edgecolor='black')
+plt.title('Histogram of Sample Means (Poputaion:Exponential, SampleMean:Noraml)')
+plt.xlabel('Sample Mean')
+plt.ylabel('Density')
+plt.show()
 
 
 
@@ -76,8 +76,10 @@ mean_ = sampling_means.mean()
 print(mean_)
 std_ = sampling_means.std()/np.sqrt(sample_size)
 
-lowerLimit = mean_ - (std_*2)
-upperLimit = mean_ + (std_*2)
+# one std limit
+std_value = 1 # for 2nd std, use 2
+lowerLimit = mean_ - (std_*std_value) 
+upperLimit = mean_ + (std_*std_value)
 
 print("Range is {} - {}".format(lowerLimit, upperLimit))
 
