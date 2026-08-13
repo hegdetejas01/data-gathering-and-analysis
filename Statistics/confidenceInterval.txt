@@ -1,0 +1,79 @@
+# Population Versus Sample
+    - Population: Entire group of objects that we need to study and draw conclusion
+    - Sample: Random subset of population, to be the representative of larger population.
+
+# Parameter Versus Estimate
+    - Parameter: Numerical value that discribes the characters of the population like mean, var, std etc. It is generally unknown and are represented in Greek letters.
+    - Estimate/Statistic: Numerical value that discribes the characters of the sample. It helps to make inferences of the unknown respective parameter of the population
+
+# Inferential Statistics: 
+    It helps to make predictions, estimations, generalisations about the larger population based on the sample of data taken from that population. It involves hypothesis testing, regression analysis, confidence interval.
+
+### Point Estimate ###
+    * It is a single value calculated from the sample that acts as a best guess for an unknown population parameter (eg. mean, std, variance etc). It helps to make inferences about the population.
+    * Point estimates are unreliable.
+    * Instead of a point estimate, it is better to predict a range - this is confidence interval
+    
+
+### Confidence Interval ###
+    * Confidence Interval: It is a range of values within which we expect a particular population parameter (eg. Mean etc)
+    * Confidence Level: It is expressed as a percentage like 95%, indicates how sure we are that the true value lies within the interval
+    * Confidence Interval is calculated for Parameter with the help of estimate/statistic
+
+    Formula:
+        Confidence Interval = PointEstimate (+)(-) MarginOfError
+
+    Ways to calculate Confidence Interval
+        1. Z-Procedure: Helps when we have std of the population
+        2. t-Procedure: Helps when we don't have std of the population
+
+
+### Z-Procedure/ Sigma Known ###
+    * Assumptions to apply z-Procedure
+        1. Samples should be random
+        2. Population std should be available
+        3. Distribution of the population should be normal distribution except that if the distribution is not normal, CLT can be applied, and the sampling distribution (which will be normal distribution) can be used ( only when sample size > 30 )
+
+    * Formula to calculate CI (confidenceInteval.pdf)
+
+        PointEstimate (+)(-) Z(alpha/2) * std / sqrt(n)
+        mu = x-bar (+)(-) Z(alpha/2) * std / sqrt(n)
+
+            1-alpha is the confidence level (Eg: 95%)
+            n = sample size
+            std = standard deviation of the population
+            PointEstimate = mean, std, variance etc
+
+        For, confidenceLevel of 95% i.e 0.95
+        PointEstimate (+)(-) Z(0.025) * std / sqrt(n)
+        mu = x-bar (+)(-) Z(0.025) * std / sqrt(n)
+
+    * mu = x-bar (+)(-) 1.96 * std / sqrt(n)
+    This is the CI with a confidence level of 95 percent, i.e, z(alpha/2) = 1.96
+
+    * mu = x-bar (+)(-) 1.13 * std / sqrt(n)
+    This is the CI with a confidence level of 75 percent, i.e, z(alpha/2) = 1.13
+
+    * Interpreting Confidence Interval
+        - Confidence level is not probability
+        - if the CI of a age is [14-42] with confidence level of 95 percent means =
+            then from sampling mean (taking random 50 datas for 100 times from the population), then 95 times the average age lie in that range
+
+            A confidence interval is a range of values within which a population parameter, such as the population mean, is estimated to lie with a certain level of confidence. The confidence interval provides an indication of the precision and uncertainty associated with the estimate. To interpret the confidence interval values, consider the following points: 
+            
+            1 . Confidence level: 
+                The confidence level (commonly set at 90%, 95%, or 99%) represents the probability that the confidence interval will contain the true population parameter if the sampling and estimation process were repeated multiple times. For example, a 95% confidence interval means that if you were to draw 100 different samples from the population and calculate the confidence interval for each, approximately 95 of those intervals would contain the true population parameter.
+
+            2. Interval range: 
+                The width of the confidence interval gives an indication of the precision of the estimate. A narrower confidence interval suggests a more precise estimate of the population parameter, while a wider interval indicates greater uncertainty. The width of the interval depends on the sample size, variability in the data, and the desired level of confidence.
+
+            3. Interpretation: 
+                To interpret the confidence interval values, you can say that you are "X% confident that the true population parameter lies within the range (lower limit, upper limit)." Keep in mind that this statement is about the interval, not the specific point estimate, and it refers to the confidence level you chose when constructing the interval.
+
+    * Factors affecting margin of error
+
+        MoE = (upper - lower) / 2
+
+        1. Confidence Level (+ve relation)
+        2. Sample size (+ve relation)
+        3. Population std (-ve relation)
