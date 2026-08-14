@@ -1,2 +1,160 @@
-### Hypothesis Testing ###
+* It is a method of statistical inference used to decide whether the data at hand sufficiently support a particular hypothesis. It allows us to make probabilistic statements about population parameters.
 
+# Null Hypothesis - H0
+    * It is a statement that assumes there is no significant effect or relationship between the variables being studied. It serves as the starting point for hypothesis testing and represents the status quo or the assumption of no effect until proven otherwise. 
+    * The purpose of hypothesis testing is to gather evidence (data) to either reject or fail to reject the null hypothesis in favour of the alternative hypothesis, which claims there is a significant effect or relationship.
+    * It basically assumes - NOTHING NEW IS HAPPENNING
+
+# Alternative Hypothesis - H1 or Ha
+    * It is a statement that contradicts the null hypothesis and claims there is a significant effect or relationship between the variables being studied.
+
+# Important points:
+    1. Null Hypothesis : NOTHING NEW IS HAPPENNING
+    2. We try to gather evidence to reject the null hypothesis
+    3. Failing to reject the null hypothesis doesn't mean that the null hypothesis is true
+    
+    Eg: In a jury trial, H0 is similar to the not-guilty verdict, and Ha is the guilty verdict. You assume in a jury trial that the defendant isn’t guilty unless the prosecution can show beyond a reasonable doubt that he or she is guilty. If the jury says the evidence is beyond a reasonable doubt, they reject H0, not guilty, in favour of Ha , guilty. 
+
+
+# Steps involved in Hypothesis Testing - REJECTION REGION APPROACH
+    1. Formulate Null and Alternative Hypothesis
+    2. Select a significance level (this is the probability of rejecting the null hypothesis when it is actually true). Usally it is 0.05(5 percent) or 0.01(1 percent)
+    3. Check assumption (eg. check distrbution etc)
+    4. Decide which test (Z-Test, T-Test, Anova, Chi-Square)
+    5. State the relevent test statistic
+    6. Conduct the test
+    7. Reject or not reject the NULL Hypothesis
+    8. Interpret the result
+
+
+#   Examples
+    Eg1: Suppose a company is evaluating the impact of a new training program on the productivity of its employees. The company has data on the average productivity of its employees before implementing the training program. The average productivity was 50 units per day with a known population standard deviation of 5 units. After implementing the training program, the company measures the productivity of a random sample of 30 employees. The sample has an average productivity of 53 units per day. The company wants to know if the new training program has significantly increased productivity.
+
+        1. Null and Alternative Hypothesis
+            Null: mu = 50
+            Alternative: mu > 50
+        2. Significance level: alpha = 0.05
+        3. Assumption
+            * Since sample size > 30, according to CLT - It is a normal distrbution
+            * We know the population standard deviation, and hence we can apply Z-Test
+        4. Z-Test to be conducted
+        5. Calculate Z
+        6. Calculate Z:
+            Z = (xbar - mu) / (std/sqrt(n))
+            = 3 * (5/sqrt(30))
+            = 3.38
+
+            Find the value on the z axis where the value of area of the curve beyond that point is 0.05 (alpha)
+
+            The point below which the area under the graph is 0.95 is 1.65
+            z = 1.65
+
+            Rejection Region:
+                The region beyond z=1.65 is called as rejection region
+                If point Z lies in this region, then i reject the null hypothesis, here Z=3.38, which lies in rejection region
+
+                If point Z lies in no rejection region, we can't reject the null hypothesis
+
+            Therefore, we have strong evidence against NULL hypothesis and in favoure of alternate hypothesis and hence we REJECT NULL HYPOTHESIS.
+
+            That is, after training, mu > 50
+
+
+    Eg2: Suppose a snack food company claims that their Lays wafer packets contain an average weight of 50 grams per packet. To verify this claim, a consumer watchdog organization decides to test a random sample of Lays wafer packets. The organization wants to determine whether the actual average weight differs significantly from the claimed 50 grams. The organization collects a random sample of 40 Lays wafer packets and measures their weights. They find that the sample has an average weight of 49 grams, with a known population standard deviation of 4 grams.
+
+        1. Null and Alternative Hypothesis
+            Null: mu = 50 grams
+            Alternative: mu != 50 grams
+        2. Significance level: alpha = 0.05
+        3. Assumption
+            * Since sample size > 40, according to CLT - It is a normal distrbution
+            * We know the population standard deviation, and hence we can apply Z-Test
+        4. Z-Test to be conducted
+        5. Calculate Z
+        6. Calculate Z:
+            Z = (xbar - mu) / (std/sqrt(n))
+            = -1 * (4/sqrt(40))
+            = -1.58
+
+            Find the value on the z axis where the value of area of the curve beyond that point is 0.05 (alpha)
+
+            Since we have to check, mu != 50, we need to apply 2 tailed test, we need to divide the area on both side based on alpha
+
+                rejection area on left side = alpha/2 = 0.025 (-)
+                rejection area on right side = alpha/2 = 0.025 (+)
+
+            Points = -1.96 and +1.96
+
+            The Z = -1.58 doesn't lie in the rejection region. Hence we cannot reject the Null Hypothesis
+
+# Significance level and Rejection region
+    * It is a predetermined threshold used in hypothesis testing to determine whether the null hypothesis should be rejected or not.
+    * It represents the probability of rejecting the null hypothesis when it is actually true
+
+    * When alpha is decreased, rejection region decreases (increasing the region of no rejection)
+    * When alpha is increased, rejection region increases (shrinking the no rejection region) - it also decreases the probability of concluding the null hypothesis.
+
+    * The rejection region is the region of values that corresponds to the rejection of the null hypothesis at some chosen probability level.
+
+# Problem with rejection region approach 
+    1.  if critical value : z=1.96 beyond which there is the rejection region
+        if we get Z=1.97, just 0.01 more than the crtitical value, we reject the entire null hypothesis
+
+    2.  if critical value : z=1.96 beyond which there is the rejection region
+        if we get Z=15 or Z=2, are trated same
+        we can't differntiate the strength of the evidence to reject the null hypothesis
+
+    Therefore, we use p-value, which measures the strenght of the evidence
+
+
+
+# Type 1 versus Type 2 error
+    This is regarding NULL hypothesis - reject it or not reject it.
+    There are chances of errors while rejecting or not rejecting the null hypothesis
+
+    Type 1 Error/ False Positive:
+        * Occurs when based on the sample results, the null hypothesis is rejeceted when it is infact true.
+        * The probability of committing a Type I error is denoted by α (alpha), which is also known as the significance level.
+        * Significance level helps to avoid such error.
+
+    Type 2 Error/ False Negative:
+        * Occurs when based on the sample results, the null hypothesis is not rejected when it is in fact false.
+        * Researcher fails to detect a significant effect or relationship when one actually exists.
+        * The probability of committing a Type II error is denoted by β (beta)
+        * Power of the test = 1-β
+        * Beta is the probability of commiting type 2 error
+
+    There is a trade off between type 1 and type 2 error
+        * Reducing the alpha value, it increases the no rejection area, which increases the type 2 error.
+        * Increasing the alpha value, decreases the rejection area, which increases the type 1 error.
+
+    
+# One sided and Two sided test
+    One Sided Test/One Tailed Test:
+        * It is used when the researcher is interested in testing the effect in a specific direction (either greater than or less than the value specified in the null hypothesis). 
+        * It is of two type:
+            1. Right tailed test - if Ha (alternative hypothesis) : mu > value
+            2. Left tailed test - if Ha (alternative hypothesis) : mu < value
+
+        * Advantages:
+            - More powerfull: entire significance level is allocated to one side of the distrbution
+            - Directional sense
+
+        * Disadvantages:
+            - Missed effects: what is happening in the other side will bw unknown
+            - Increases risk of type 1 error
+
+    Two Sided Test/Two Tailed Test:
+        * It is used when the researcher is interested in testing the effect in both directions (i.e., whether the value specified in the null hypothesis is different, either greater or lesser).
+
+        * Advantages:
+            - Detects effect in both direction.
+            - More conservative: Significance level is split between two tails of the distrbution. This reduces the chances of type 1 error.
+        
+        * Disadvantages:
+            - Less powerfull - Significance level is distrbuted. This means the test requires larger effect size to reject a null hypothesis, which could lead to type 2 errors
+            - Not appropriate for directional hypothesis.
+
+
+# Where can hypothesis testing be applied?
+    
