@@ -157,4 +157,15 @@
 
 
 # Where can hypothesis testing be applied?
-    
+    1. Testing the effectiveness of interventions or treatments - Like new drugs testing
+    2. Comparing means and proportion
+    3. Analysing relationship between variables
+    4. Evaluating the goodness of the fit
+    5. Testing the independence of the categorical variables
+    6. A/B testing
+
+# Hypothesis testing in ML application
+    1. Model comprision
+    2. Feature selection
+    3. Hyperparameter tuning
+    4. Assessing model assumption
