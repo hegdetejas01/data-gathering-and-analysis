@@ -123,6 +123,3 @@
         For the same confidence level and for lower level of degree of freedom, generally 
             --> Z(alpha/2) < T(alpha/2) , 
                     This also increases the confidence interval range
-
-        
-

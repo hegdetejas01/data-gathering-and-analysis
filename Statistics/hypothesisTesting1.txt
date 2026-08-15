@@ -101,7 +101,7 @@
         if we get Z=1.97, just 0.01 more than the crtitical value, we reject the entire null hypothesis
 
     2.  if critical value : z=1.96 beyond which there is the rejection region
-        if we get Z=15 or Z=2, are trated same
+        if we get Z=15 or Z=2, they both are treated same
         we can't differntiate the strength of the evidence to reject the null hypothesis
 
     Therefore, we use p-value, which measures the strenght of the evidence

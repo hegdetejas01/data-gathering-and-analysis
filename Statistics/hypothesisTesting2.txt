@@ -1,0 +1,98 @@
+# P-Value
+    * It is the probablility of getting a sample as or more extreme(having more evidence against H0) than our own sample, given that the null hypothesis is true.
+    
+    Eg:
+        Tossing a coin for 100 times
+        H0: p(H) = p(T) # probability of getting heads and tails are same
+        Ha: p(H) > p(T)
+
+        Suppose, if i get 53 heads and 47 tails in my first 100 trails, we can't conclude, Ha is true
+
+        P-Value here is: probability of heading coming greater than 53 - because it is our own sample. It is the area of the graph at and beyond 53. P-Value for 53 heads is 0.3, that means - 
+
+            If  the null hypothesis is true, and if i am conducting an experiment of tossing a coin 100 times for 100 times and if the p-value is 0.3 it means, 30 out of 100 times (of tossing a coin 100 times), i may get 53 heads 
+
+    * Rejecting the Null Hypothesis:
+        if p-value <= alpha: Reject null hypothesis
+        
+        if alpha is not known   
+            - if p<0.01: can reject the null hypothesis
+            - if 0.01<=p<0.05: can reject the null hypothesis
+            - if 0.05<=p<=0.1: more investigation needed
+            - if p>=0.1: no evidence against null hypothesis, null hypothesis can't be rejeceted
+
+    
+# P-Value in the context of Z-Test
+    (Instead of rejection region approach, we use p-value approach)
+    
+    Examples: 
+        1. Suppose a company is evaluating the impact of a new training program on the productivity of its employees. The company has data on the average productivity of its employees before implementing the training program. The average productivity was 50 units per day. After implementing the training program, the company measures the productivity of a random sample of 30 employees. The sample has an average productivity of 53 units per day and the pop std is 4. The company wants to know if the new training program has significantly increased productivity.
+
+            # Using Rejection Region Approcah
+
+                Population mean (mu) = 50
+                sample size (n) = 30
+                sample mean (xbar) = 53
+                population std = 4
+                alpha = 0.05
+
+                H0: mu = 50
+                Ha: mu > 50
+
+                Since n>30, we can apply CLT and the distribution is a normal.
+
+                Z   = (xbar - mu) / (std/sqrt(n))
+                    = (53-50) * (4/sqrt(30))
+                    = 4.10
+
+                z = 1.65
+
+                ** Z falls beyond 1.65 and hence I reject the null hypothesis
+
+                - Even if we have Z=1.66 we reject and even if Z=15 we reject: This doesn't tell the strenght of the evidence
+
+            
+            # Using P-Value Approcah
+
+                Z=4.10 (from above)
+                Check the area of the graph right to the point of Z=4.10
+                Check Z-Table, area before 4.10 is 0.999 and hence area beyond Z=4.10 is 0.001 
+
+                p-value = 0.001
+                p-value < alpha : Reject the Null Hypothesis
+
+                If Z=1.7, p-value = 0.05
+
+                Therefore, i am more sure when Z=4.1 than Z=1.7
+
+        2. Suppose a snack food company claims that their Lays wafer packets contain an average weight of 50 grams per packet. To verify this claim, a consumer watchdog organization decides to test a random sample of Lays wafer packets. The organization wants to determine whether the actual average weight differs significantly from the claimed 50 grams. The organization collects a random sample of 40 Lays wafer packets and measures their weights. They find that the sample has an average weight of 49 grams, with a pop standard eviation of 5 grams.
+
+            mu = 50
+            n = 40
+            xbar = 49
+            std = 5
+            alpha = 0.05
+
+            H0: mu = 50
+            H1: mu != 50 # two tailed
+
+            Z   = (xbar - mu) / (std/sqrt(n))
+                = -1 * (5/sqrt(40))
+                = -1.26
+
+            Consider, -1.26 and +1.26 on the graph 
+            Consider area1 = area of the graph behind the point -1.26 and area2 = area of the graph beyond the point +1.26
+            
+            p-value = area1 + area2 = 2 * area1
+                    = 2 * 0.103
+                    = 0.206
+
+            since, p-value > 0.05, I can't reject the null hypothesis
+
+
+
+### t-Test ###
+
+    * It uses the sample std deviation and works well even for smaller sample size (z-test is used when sigma -- pop std is known)
+
+    
