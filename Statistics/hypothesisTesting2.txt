@@ -94,5 +94,132 @@
 ### t-Test ###
 
     * It uses the sample std deviation and works well even for smaller sample size (z-test is used when sigma -- pop std is known)
-
+    * It is used in hypothesis testing to compare the means of two samples or to compare a sample mean to a known population mean
+    * It is based on the t-distribution
     
+    Types of T-Test:
+        1. One Sample t-test
+            - Used on one sample
+            - Mean of the sample, is used to do hypothesis testing on the known population mean
+            - The null hypothesis states that there is no significant difference between the sample mean and the population mean, while the alternative hypothesis tates that there is a significant difference
+        
+        2. Independent Two Sample t-test
+            - Used to compare the means of two independent samples
+            - The null hypothesis states that there is no significant difference between the means of the two samples, while the alternative hypothesis states that there is a significant difference
+
+        3. Paired t-test (dependent two sample t-test)
+            - Used to compare the means of two samples that are dependent or paired such as pre-test or post-test scores of the same group of subjects/measurement taken under two different conditions.
+            - The null hypothesis states that there is no significant difference between the means of the paired differences, while the alternative hypothesis states that there is a significant difference.
+
+
+# One sample t-test
+    * A one-sample t-test checks whether a sample mean differs from the population mean
+
+    Assumptions:
+        1. Normality - either population or sample
+        2. Independent obersavtions
+        3. Random sampling
+        4. Unknown population std
+
+    Example:
+    Suppose a manufacturer claims that the average weight of their new chocolate bars is 50 grams, we highly doubt that and want to check this so we drew out a sample of 25 chocolate bars and measured their weight, the sample mean came out to be 49.7 grams and the sample std deviation was 1.2 grams. Consider the significance level to be 0.05
+        mu = 50
+        n = 25
+        xbar = 49.7
+        alpha = 0.05
+        sample std (s) = 1.2
+
+        degree of freedom = n-1 = 24
+
+        H0: mu = 50
+        Ha: mu != 50
+
+        Assuming that the data is normal
+
+        t = (xbar - mu) / (s/sqrt(n))
+          = (49.7 - 50) / (1.2/sqrt(25))
+          = -1.5/1.2
+          = -1.25
+
+        Consider, -1.25 and +1.25 on the graph 
+        Consider area1 = area of the graph behind the point -1.25 and area2 = area of the graph beyond the point +1.25
+        
+        Use CDF to find the area left to -1.25, n-1=24
+
+        p-value = area1 + area2 = 2 * area1
+                = 2 * 0.11
+                = 0.22
+
+        p-value > alpha: Null hypothesis can't be rejeceted
+
+# Independent Two Sample t-test
+    * It is used to compare the means of two independent groups to determine if there is a significant difference between them
+
+    Assumption:
+        1. Independent Observations
+        2. Population Std unavailable
+        3. Normality
+        4. Random Sampling
+        5. Equal variance (homoscedasticity) - 
+            Variance of one Sample = Variance of the Second Sample 
+            Levine test
+
+    Example:
+        Suppose a website owner claims that there is no difference in the average time spent on their website between desktop and mobile users. To test this claim, we collect data from 30 desktop users and 30 mobile users regarding the time spent on the website in minutes. The sample statistics are as follows:
+            
+            desktop users = [12, 15, 18, 16, 20, 17, 14, 22, 19, 21, 23, 18, 25, 17, 16, 24, 20, 19, 22, 18, 15, 14, 23, 16, 12, 21, 19, 17, 20, 14]
+            
+            mobile_users = [10, 12, 14, 13, 16, 15, 11, 17, 14, 16, 18, 14, 20, 15, 14, 19, 16, 15, 17, 14, 12, 11, 18, 15, 10, 16, 15, 13, 16, 11]
+
+        Mobile Users:
+            Sample size (n2): 30
+            Sample mean (mean2): 14.3 minutes
+            Sample standard deviation (std_dev2): 2.7 minutes
+
+        Desktop Users:
+            Sample size (n1): 30
+            Sample mean (mean1): 18.5 minutes
+            Sample standard deviation (std_dev1): 3.5 minutes
+
+        H0: mu(mobile) = mu(desktop)
+        Ha: mu(mobile) != mu(desktop)
+
+        t = (x1bar - x2bar) / sqrt((s1^2/n1) + (s2^2/n2))
+          = (18.5 - 14.3) / sqrt((3.5^2/30) + (2.7^7/30))
+          = 4.2 / (sqrt(19.54/30))
+          = 5.25
+
+        Two tailed test = plot the graph and identify -5.25 and +5.25 from the t-Table
+
+
+# Paired Two Sample t-Test
+    * It is used to compare the means of the two related or dependent groups
+
+    Common scenarios where a paired two-sample t-test is used include:
+        1. Before-and-after studies
+        2. Matched or correlated groups
+
+    Assumptions:
+        1. Paired obersavtions - Two set should be related to each other.
+        2. Normality - The difference between the paired observations should be normally distributed.
+        3. Independence of pairs - Each pair should be independent of each other
+
+    Example:
+        Let's assume that a fitness center is evaluating the effectiveness of a new 8 -week weight loss program. They enroll 15 participants in the program and measure their weights before and after the program. The goal is to test whether the new weight loss program leads to a significant reduction in the participants' weight
+
+        Before the program: [80, 92, 75, 68, 85, 78, 73, 90, 70, 88, 76, 84, 82, 77, 91]
+        After the program: [78, 93, 81, 67, 88, 76, 74, 91, 69, 88, 77, 81, 80, 79, 88]
+
+        Significance level = 0.05
+
+            H0: mu(before) = mu(after)
+            Ha: mu(before) > mu(after)
+            
+            Differences in weight should be normal
+            Then find sample mean and sample std of the differences
+
+            mudiff = mubefore - muafter = 0
+            t = xbardiff - mudiff / ((std of diff)/sqrt(n))
+              = xbardiff / (std diff/sqrt(15))
+
+        
